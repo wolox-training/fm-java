@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class GreetingController {
 
-    private static final String NAME = "name";
+     private static final String NAME = "name";
+     private static final String GREETING = "greeting";
+     private static final String WORLD = "world";
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name=NAME, required=false, defaultValue="World") String name, @NotNull Model model) {
+    @GetMapping("/"+ GREETING)
+    public String greeting(@RequestParam(name=NAME, required=false, defaultValue=WORLD) String name, @NotNull Model model) {
         model.addAttribute(NAME, name);
-        return "greeting";
+        return GREETING;
     }
 
 }
